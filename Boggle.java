@@ -42,7 +42,7 @@ public class Boggle
 	{
 		word += board[r][c];
 
-		 // EVENTUALLY REPLACE WITH: IF FOUND IN DICT ADD TO HITS CONTAINER
+		
 		boolean found = false;
 		//System.out.println( word );
 		if(word.length()>=3 && dictionary.contains(word)){//if the word is 3 letters or longer check dictionary for it.
@@ -58,26 +58,8 @@ public class Boggle
 		if(!hasPrefix){
 			return;//forget abt the words your on 
 		}
-		// THE HUERISTIC GOES HERE:  After you search for the word just formed
-		// if the dictionary comes back with false (i.e. not found) then "ask" the dictionary
-		// "are there any words in you that even start with this failed word?"
-		// HOW DO I ASK THE DICTIONARY THIS QUESTION?
-		// (same way you wrote union,intersect,diff with no loops)  READ THE TreeSet API methods!
-		// If the dictionary comes back and says "NO there are no words in me that ever start with that failed word
-		// then you ask yourself " What value is that information?  What should I do if the word I just formed
-		// is not in the dictaionary AND there is not even a word in the dictionary that even starts with this word?
-		// YOU CONNECT THE DOTS AND DECIDE WHAT TO DO IF YOUR FAILED WORD IS NOT A PREFIX OF THE DICTIONARY..
-
-
-		// N O W    Y O U    D O    A    S W E E P    O F   Y O U R   8   N E I G H B O R   C E L L S
-		// L O O K I N G  T O   G R O W   Y O U R   W O R D    W I T H   A    R E C U R S I V E  C A L L
-
-		// IM GIVING you THE NORTH AND NORTHEAST TESTS - YOU MUST WRITE 6 MORE BELOW IT
-		// DO NOT ELSE THEM OFF GIVE EVERY BLOCK AN INDEPENDENT IF TEST
-		// YOU WANT TO RESUME YOUR CLOCKWISE SWEEP OF NEIGHBORS
-
-		// NORTH IS [r-1][c]
-
+		
+		
 		if ( r-1 >= 0   &&   board[r-1][c] != null )   // THE r +/- and c+/- WILL CHANGE FOR EVEY BLOCK BELOW
 		{	String unMarked = board[r][c]; // SAVE TO RESTORE AFTER RET FROM RECURSION
 			board[r][c] = null; // // null IS THE MARKER OF A VALUE AS IN USE ALREADY
